@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/standard_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:behavior_hideable="true"
+    android:background="@color/bg_custom_sheet_play_music"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_down"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_arrow_down" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/img_menu"
+            android:layout_toEndOf="@+id/img_down"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name_song"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="19dp" />
+
+            <TextView
+                android:id="@+id/tv_name_singer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:paddingEnd="20dp"
+            android:src="@drawable/ic_menu_song" />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_img_action"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relative_layout_top">
+
+        <ImageView
+            android:id="@+id/img_action_music"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+    <SeekBar
+        android:id="@+id/seek_bar_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:valueFrom="0.0"
+        android:valueTo="100.0"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_img_action"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/seek_bar_music">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back" />
+        <ImageView
+            android:id="@+id/img_pause_or_play"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_pause" />
+
+        <ImageView
+            android:id="@+id/img_next"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_next" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
